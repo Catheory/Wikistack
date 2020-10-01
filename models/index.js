@@ -6,7 +6,8 @@ const db = new Sequelize('postgres://localhost:5432/wikistack', {
 const Page = db.define('page', {
     title: {
         type:Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'How to grow cauliflower'
     },
     slug: {
         type:Sequelize.STRING,
@@ -25,7 +26,10 @@ const User = db.define('user', {
     },
     email: {
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:false,
+        validate: {
+          isEmail: true,
+        }
     }
 })
 

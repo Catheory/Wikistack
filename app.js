@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const wikiRouter = require('./routes/wiki.js')
+const usersRouter = require('./routes/users.js')
 const bodyParser = require('body-parser');
 const { db, Page, User } = require('./models');
 
